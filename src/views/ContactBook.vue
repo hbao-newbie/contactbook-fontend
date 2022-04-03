@@ -18,7 +18,9 @@
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
-                <button class="btn btn-sm btn-success" @click="goToAddContact">
+                <button class="btn btn-sm btn-success" 
+                    @click="goToAddContact"
+                >
                     <i class="fas fa-plus"></i> Thêm mới
                 </button>
                 <button
@@ -84,18 +86,18 @@ export default {
             return this.contacts.map((contact) => {
                 const { name, email, address, phone } = contact;
                 return [name, email, address, phone].join("");
-            });
+            }); 
         },
         // Trả về các contact có chứa thông tin cần tìm kiếm.
         filteredContacts() {
             if (!this.searchText) return this.contacts;
-            return this.contacts.filter((contact, index) =>
-            this.contactStrings[index].includes(this.searchText)
+            return this.contacts.filter(
+                (contact, index) => this.contactStrings[index].includes(this.searchText)
             );
         },
         activeContact() {
             if (this.activeIndex < 0) return null;
-            return this.contacts[this.activeIndex];
+            return this.filteredContacts[this.activeIndex];
         },
         contactCount() {
             return this.filteredContacts.length;
