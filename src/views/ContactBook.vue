@@ -11,7 +11,7 @@
             <ContactList
                 v-if="contactCount > 0"
                 :contacts="filteredContacts"
-                :activeIndex="activeIndex"
+                v-model:activeIndex="activeIndex"
             />
             <p v-else>Không có liên hệ nào.</p>
             <div class="mt-3 row justify-content-around align-items-center">
@@ -30,7 +30,9 @@
             </div>
         </div>
         <div class="mt-3 col-md-6">
-            <div v-if="activeContact">
+            <div
+                v-if="activeContact"
+            >
                 <h4>
                     Chi tiết Liên hệ
                     <i class="fas fa-address-card"></i>
@@ -70,8 +72,8 @@ export default {
         };
     },
     watch: {
-    // Giám sát các thay đổi của biến searchText.
-    // Bỏ chọn phần tử đang được chọn trong danh sách.
+        // Giám sát các thay đổi của biến searchText.
+        // Bỏ chọn phần tử đang được chọn trong danh sách.
         searchText() {
             this.activeIndex = -1;
         },
@@ -133,7 +135,7 @@ export default {
 
 <style scoped>
 .page {
-text-align: left;
-max-width: 750px;
+    text-align: left;
+    max-width: 750px;
 }
 </style>
