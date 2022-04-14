@@ -77,9 +77,9 @@ import * as yup from "yup";
 import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
     components: {
-    Form,
-    Field,
-    ErrorMessage,
+        Form,
+        Field,
+        ErrorMessage,
     },
     emits: ["submit:contact", "delete:contact"],
     props: {
